@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Briefcase, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { getDemandedProfessions, Profession } from '../../data/professions';
 
 export const DemandedProfessions: React.FC = () => {
@@ -17,7 +18,7 @@ export const DemandedProfessions: React.FC = () => {
   };
   
   return (
-    <section className="py-16 bg-neutral-50">
+    <section className="py-16 bg-gradient-to-br from-neutral-50 to-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-10">
           <div>
@@ -43,56 +44,60 @@ export const DemandedProfessions: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 flex items-center justify-center bg-primary-100 text-primary-600 rounded-full mr-3">
-                      <Briefcase size={20} />
+              <Link
+                to={`/profession/${profession.id}`}
+                className="block bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow transform hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full mr-3">
+                        <Briefcase size={20} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-neutral-800">
+                        {getProfessionName(profession)}
+                      </h3>
                     </div>
-                    <h3 className="text-lg font-semibold text-neutral-800">
-                      {getProfessionName(profession)}
-                    </h3>
-                  </div>
-                  <div className="flex items-center text-accent-500">
-                    <TrendingUp size={16} />
-                    <span className="ml-1 text-sm font-medium">
-                      {profession.demandLevel > 4 ? 'Высокий спрос' : 'Средний спрос'}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="mb-5">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-neutral-500">Зарплата:</span>
-                    <span className="text-sm font-medium text-neutral-700">
-                      {formatSalary(profession.salaryRange.min, profession.salaryRange.max)}
-                    </span>
-                  </div>
-                  <div className="text-sm text-neutral-600">
-                    {i18n.language === 'kk' ? profession.descriptionKk : profession.descriptionRu}
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-neutral-200">
-                  <div className="flex flex-wrap gap-2">
-                    {profession.workingProfession && (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800">
-                        Рабочая профессия
+                    <div className="flex items-center text-accent-500">
+                      <TrendingUp size={16} />
+                      <span className="ml-1 text-sm font-medium">
+                        {profession.demandLevel > 4 ? 'Высокий спрос' : 'Средний спрос'}
                       </span>
-                    )}
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-                      {profession.type === 'realistic' ? 'Реалистичный тип' : 
-                       profession.type === 'investigative' ? 'Исследовательский тип' : 
-                       profession.type === 'artistic' ? 'Артистический тип' : 
-                       profession.type === 'social' ? 'Социальный тип' : 
-                       profession.type === 'enterprising' ? 'Предпринимательский тип' : 
-                       'Конвенциональный тип'}
-                    </span>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-5">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-neutral-500">Зарплата:</span>
+                      <span className="text-sm font-medium text-neutral-700">
+                        {formatSalary(profession.salaryRange.min, profession.salaryRange.max)}
+                      </span>
+                    </div>
+                    <div className="text-sm text-neutral-600">
+                      {i18n.language === 'kk' ? profession.descriptionKk : profession.descriptionRu}
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-neutral-200">
+                    <div className="flex flex-wrap gap-2">
+                      {profession.workingProfession && (
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800">
+                          Рабочая профессия
+                        </span>
+                      )}
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                        {profession.type === 'realistic' ? 'Реалистичный тип' : 
+                         profession.type === 'investigative' ? 'Исследовательский тип' : 
+                         profession.type === 'artistic' ? 'Артистический тип' : 
+                         profession.type === 'social' ? 'Социальный тип' : 
+                         profession.type === 'enterprising' ? 'Предпринимательский тип' : 
+                         'Конвенциональный тип'}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

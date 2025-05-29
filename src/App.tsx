@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage';
 import { TestPage } from './pages/TestPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { AboutPage } from './pages/AboutPage';
+import { ProfessionPage } from './pages/ProfessionPage';
 import { useUserStore } from './store/userStore';
 
 function App() {
@@ -14,20 +15,18 @@ function App() {
   const location = useLocation();
   const { language } = useUserStore();
 
-  // Set language from store on initial load
   useEffect(() => {
     if (language) {
       i18n.changeLanguage(language);
     }
   }, [language, i18n]);
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Header />
       <main className="flex-grow">
         <Routes>
@@ -35,6 +34,7 @@ function App() {
           <Route path="/test" element={<TestPage />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/profession/:id" element={<ProfessionPage />} />
         </Routes>
       </main>
       <Footer />
