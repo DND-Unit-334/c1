@@ -112,6 +112,147 @@ export const careerPaths: CareerPath[] = [
         nextSteps: ['service-manager', 'workshop-owner']
       }
     ]
+  },
+  {
+    professionId: 'electrician',
+    steps: [
+      {
+        id: 'apprentice-electrician',
+        titleRu: 'Ученик электрика',
+        titleKk: 'Электрик оқушысы',
+        descriptionRu: 'Начальная позиция. Обучение под руководством опытного электрика.',
+        descriptionKk: 'Бастапқы позиция. Тәжірибелі электриктің басшылығымен оқыту.',
+        yearsExperience: 0,
+        salaryRange: {
+          min: 120000,
+          max: 200000
+        },
+        skills: ['Базовые инструменты', 'Техника безопасности', 'Основы электротехники'],
+        nextSteps: ['junior-electrician']
+      },
+      {
+        id: 'junior-electrician',
+        titleRu: 'Младший электрик',
+        titleKk: 'Кіші электрик',
+        descriptionRu: 'Выполнение базовых электромонтажных работ под наблюдением.',
+        descriptionKk: 'Бақылау астында негізгі электр монтаждау жұмыстарын орындау.',
+        yearsExperience: 1,
+        salaryRange: {
+          min: 200000,
+          max: 300000
+        },
+        skills: ['Монтаж проводки', 'Установка оборудования', 'Чтение схем'],
+        nextSteps: ['electrician']
+      },
+      {
+        id: 'electrician',
+        titleRu: 'Электрик',
+        titleKk: 'Электрик',
+        descriptionRu: 'Самостоятельное выполнение всех видов электромонтажных работ.',
+        descriptionKk: 'Барлық электр монтаждау жұмыстарын өз бетінше орындау.',
+        yearsExperience: 3,
+        salaryRange: {
+          min: 300000,
+          max: 450000
+        },
+        skills: ['Диагностика неисправностей', 'Промышленная электрика', 'Автоматизация'],
+        nextSteps: ['master-electrician']
+      }
+    ]
+  },
+  {
+    professionId: 'graphic-designer',
+    steps: [
+      {
+        id: 'junior-designer',
+        titleRu: 'Младший дизайнер',
+        titleKk: 'Кіші дизайнер',
+        descriptionRu: 'Работа над простыми проектами под руководством старших дизайнеров.',
+        descriptionKk: 'Аға дизайнерлердің басшылығымен қарапайым жобалармен жұмыс.',
+        yearsExperience: 0,
+        salaryRange: {
+          min: 150000,
+          max: 300000
+        },
+        skills: ['Adobe Photoshop', 'Adobe Illustrator', 'Основы композиции'],
+        nextSteps: ['designer']
+      },
+      {
+        id: 'designer',
+        titleRu: 'Дизайнер',
+        titleKk: 'Дизайнер',
+        descriptionRu: 'Самостоятельная работа над проектами средней сложности.',
+        descriptionKk: 'Орташа күрделіліктегі жобалармен өз бетінше жұмыс.',
+        yearsExperience: 2,
+        salaryRange: {
+          min: 300000,
+          max: 500000
+        },
+        skills: ['UI/UX Design', 'Брендинг', 'Типография', 'Motion Design'],
+        nextSteps: ['senior-designer', 'art-director']
+      },
+      {
+        id: 'senior-designer',
+        titleRu: 'Старший дизайнер',
+        titleKk: 'Аға дизайнер',
+        descriptionRu: 'Ведение сложных проектов и руководство командой дизайнеров.',
+        descriptionKk: 'Күрделі жобаларды жүргізу және дизайнерлер командасын басқару.',
+        yearsExperience: 4,
+        salaryRange: {
+          min: 500000,
+          max: 800000
+        },
+        skills: ['Team Management', 'Project Management', 'Design Strategy', 'Client Communication'],
+        nextSteps: ['art-director', 'creative-director']
+      }
+    ]
+  },
+  {
+    professionId: 'nurse',
+    steps: [
+      {
+        id: 'intern-nurse',
+        titleRu: 'Медсестра-стажер',
+        titleKk: 'Тәжірибеден өтуші мейірбике',
+        descriptionRu: 'Начальная позиция. Обучение под руководством опытных медсестер.',
+        descriptionKk: 'Бастапқы позиция. Тәжірибелі мейірбикелердің басшылығымен оқыту.',
+        yearsExperience: 0,
+        salaryRange: {
+          min: 120000,
+          max: 180000
+        },
+        skills: ['Базовый уход', 'Измерение показателей', 'Асептика и антисептика'],
+        nextSteps: ['general-nurse']
+      },
+      {
+        id: 'general-nurse',
+        titleRu: 'Медицинская сестра',
+        titleKk: 'Мейірбике',
+        descriptionRu: 'Самостоятельная работа с пациентами, выполнение назначений врача.',
+        descriptionKk: 'Науқастармен өз бетінше жұмыс, дәрігердің тағайындауларын орындау.',
+        yearsExperience: 2,
+        salaryRange: {
+          min: 180000,
+          max: 250000
+        },
+        skills: ['Инъекции', 'Забор анализов', 'Уход за пациентами'],
+        nextSteps: ['specialized-nurse']
+      },
+      {
+        id: 'specialized-nurse',
+        titleRu: 'Специализированная медсестра',
+        titleKk: 'Мамандандырылған мейірбике',
+        descriptionRu: 'Работа в специализированном отделении, расширенные обязанности.',
+        descriptionKk: 'Мамандандырылған бөлімде жұмыс, кеңейтілген міндеттер.',
+        yearsExperience: 4,
+        salaryRange: {
+          min: 250000,
+          max: 350000
+        },
+        skills: ['Специализированный уход', 'Работа с оборудованием', 'Обучение персонала'],
+        nextSteps: ['head-nurse']
+      }
+    ]
   }
 ];
 
